@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import styles from './Orders.module.css';
+import AdminNavbar from '../../Components/AdminNavbar';
 
 const Orders = () => {
     const [orders, setOrders] = useState([]);
@@ -46,6 +47,7 @@ const Orders = () => {
 
     return (
         <div className={styles.container}>
+            <AdminNavbar />
             <h1 className={styles.header}>Orders Management</h1>
 
             <div className={styles.filterSection}>

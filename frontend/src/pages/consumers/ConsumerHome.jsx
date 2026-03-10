@@ -2,13 +2,15 @@ import React from 'react';
 import { Container, Grid, Typography, Button } from '@mui/material';
 import { Link } from 'react-router-dom';
 import styles from './ConsumerHome.module.css';
+import WhatsAppChat from '../../Components/WhatsAppChat';
+import ChatBot from '../../Components/ChatBot';
 
 const ConsumerHome = () => {
     const features = [
         {
-            title: 'Fresh Products',
+            title: 'Good Equipment',
             description: 'Direct from local farmers to your table',
-            image: 'https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&q=80',
+            image: 'https://images.unsplash.com/photo-1695566775904-9048725f70a8?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fHRyYWN0b3IlMjBpbiUyMGZpZWxkfGVufDB8fDB8fHww',
         },
         {
             title: 'Support Local',
@@ -18,7 +20,7 @@ const ConsumerHome = () => {
         {
             title: 'Quality Assured',
             description: 'All products are quality checked',
-            image: 'https://images.unsplash.com/photo-1488459716781-31db52582fe9?auto=format&fit=crop&q=80',
+            image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpZ2RLUkXtDN_GqqGuz1sQho42FPG29BD5ng&s',
         },
     ];
 
@@ -27,10 +29,10 @@ const ConsumerHome = () => {
             <div className={styles.heroSection}>
                 <div className={styles.heroContent}>
                     <Typography variant="h1" className={styles.heroTitle}>
-                        Welcome to AGRIBRIDGE
+                        Welcome to FarmoConnect
                     </Typography>
                     <Typography variant="h5" className={styles.heroSubtitle}>
-                        Fresh, Local, and Sustainable Products Direct from Farmers
+                        Cost Friendly, Easy To Rent, and Sustainable Machinery Direct from Farmers
                     </Typography>
                     <Button
                         component={Link}
@@ -40,7 +42,7 @@ const ConsumerHome = () => {
                         size="large"
                         className={styles.ctaButton}
                     >
-                        Shop Now
+                        Rent Now
                     </Button>
                 </div>
             </div>
@@ -89,6 +91,8 @@ const ConsumerHome = () => {
                     </Button>
                 </Container>
             </section>
+            <WhatsAppChat />
+            <ChatBot/>
         </div>
     );
 };

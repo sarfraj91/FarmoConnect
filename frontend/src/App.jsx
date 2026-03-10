@@ -10,11 +10,13 @@ import AdminRoutes from "./pages/admin/AdminRoutes.jsx";
 import FarmerRoutes from "./pages/farmers/FarmerRoutes.jsx";
 import Unauthorized from "./pages/admin/Unauthorized.jsx";
 import ConsumerDashboard from "./pages/consumers/ConsumerDashboard.jsx";
+import MainLandingPage from "./pages/MainLandingPage.jsx";
 const App = () => {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/" element={<MainLandingPage />} />
         <Route path="/consumer-login" element={<ConsumerLogin />} />
         <Route path="/consumer-register" element={<ConsumerReg />} />
         <Route path="/farmer-login" element={<FarmerLogin />} />

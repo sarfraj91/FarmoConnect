@@ -78,6 +78,7 @@ const FarmerLogin = () => {
       }
     } catch (err) {
       setError("An error occurred while sending OTP.");
+      console.error(err);
     }
   };
 
@@ -97,6 +98,7 @@ const FarmerLogin = () => {
       }
     } catch (err) {
       setError("OTP verification failed.");
+      console.error(err);
     }
   };
 
@@ -130,6 +132,7 @@ const FarmerLogin = () => {
       }
     } catch (err) {
       setError("Something went wrong while resetting password.");
+      console.error(err);
     }
   };
 
@@ -216,7 +219,7 @@ const FarmerLogin = () => {
           </form>
         )}
 
-        <Link to="/" className={styles["back-link"]}>
+        <Link to="/home" className={styles["back-link"]}>
           Back to Home
         </Link>
 

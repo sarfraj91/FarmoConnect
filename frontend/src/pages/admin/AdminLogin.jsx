@@ -2,13 +2,15 @@ import React, { useState, useRef, useEffect } from "react";
 import { useParams, Navigate, useNavigate } from "react-router-dom";
 import axios from "axios";
 import styles from "./AdminLogin.module.css";
+import { Link } from "react-router-dom";
 
 const AdminLogin = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const otpInputRef = useRef(null);
 
-  const allowedAdmins = ["ganesh", "nikitha", "lavanya", "rajeswari"];
+  // const allowedAdmins = ["ganesh", "nikitha", "lavanya", "rajeswari"];
+  const allowedAdmins = ["sarfaraj", "saif", "shakir", "hafijul"];
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -52,10 +54,13 @@ const AdminLogin = () => {
     setMessage("");
 
     try {
-      const response = await axios.post("http://localhost:5000/api/admin-login", {
-        username,
-        password,
-      });
+      const response = await axios.post(
+        "http://localhost:5000/api/admin-login",
+        {
+          username,
+          password,
+        }
+      );
 
       if (response.data.success) {
         navigate("/admin-dashboard");
@@ -75,18 +80,24 @@ const AdminLogin = () => {
     setIsOtpVerified(false);
 
     try {
-      const checkUser = await axios.post("http://localhost:5000/api/check-usernameadmin", {
-        username,
-      });
+      const checkUser = await axios.post(
+        "http://localhost:5000/api/check-usernameadmin",
+        {
+          username,
+        }
+      );
 
       if (checkUser.data.message !== "Admin exists") {
         setErrorMsg("Admin not found.");
         return;
       }
 
-      const sendOtp = await axios.post("http://localhost:5000/api/send-otpadmin", {
-        username,
-      });
+      const sendOtp = await axios.post(
+        "http://localhost:5000/api/send-otpadmin",
+        {
+          username,
+        }
+      );
 
       if (sendOtp.data.message === "OTP sent successfully") {
         setShowForgotPassword(true);
@@ -103,10 +114,13 @@ const AdminLogin = () => {
 
   const handleOtpSubmit = async () => {
     try {
-      const res = await axios.post("http://localhost:5000/api/verify-otpadmin", {
-        username,
-        otp: enteredOtp,
-      });
+      const res = await axios.post(
+        "http://localhost:5000/api/verify-otpadmin",
+        {
+          username,
+          otp: enteredOtp,
+        }
+      );
 
       if (res.data.verified) {
         setIsOtpVerified(true);
@@ -127,10 +141,13 @@ const AdminLogin = () => {
     }
 
     try {
-      const res = await axios.post("http://localhost:5000/api/reset-passwordadmin", {
-        username,
-        newPassword,
-      });
+      const res = await axios.post(
+        "http://localhost:5000/api/reset-passwordadmin",
+        {
+          username,
+          newPassword,
+        }
+      );
 
       if (res.data.success) {
         setMessage("Password reset successful!");
@@ -188,10 +205,22 @@ const AdminLogin = () => {
             <button type="submit" className={styles.loginButton}>
               LOGIN
             </button>
-            <button type="button" onClick={handleForgotPassword} className={styles.forgotPasswordButton}>
+            <button
+              type="button"
+              onClick={handleForgotPassword}
+              className={styles.forgotPasswordButton}
+            >
               Forgot Password?
             </button>
-            <p className={styles.newUser}>New User? Contact the system administrator.</p>
+            <button type="button" className={styles.forgotPasswordButton}>
+              <Link to="/home" className={styles.backLink} style={{textDecoration: 'none', color: 'inherit'}}>
+                Back to Home
+              </Link>
+            </button>
+
+            <p className={styles.newUser}>
+              New User? Contact the system administrator.
+            </p>
           </>
         )}
 
@@ -209,14 +238,23 @@ const AdminLogin = () => {
                     onChange={(e) => setEnteredOtp(e.target.value)}
                     required
                   />
-                  <button type="button" className={styles.loginButton} onClick={handleOtpSubmit}>
+                  <button
+                    type="button"
+                    className={styles.loginButton}
+                    onClick={handleOtpSubmit}
+                  >
                     Verify OTP
                   </button>
-                  <p className={styles.timerText}>OTP valid for: {formatTime(timer)}</p>
+                  <p className={styles.timerText}>
+                    OTP valid for: {formatTime(timer)}
+                  </p>
                 </>
               ) : (
                 <>
-                  <p className={styles.timerText} style={{ color: "red", fontWeight: "bold" }}>
+                  <p
+                    className={styles.timerText}
+                    style={{ color: "red", fontWeight: "bold" }}
+                  >
                     OTP expired. Please retry.
                   </p>
                   <button
@@ -261,7 +299,11 @@ const AdminLogin = () => {
                 >
                   {showPassword ? "Hide Password" : "Show Password"}
                 </button>
-                <button type="button" className={styles.loginButton} onClick={handleResetPassword}>
+                <button
+                  type="button"
+                  className={styles.loginButton}
+                  onClick={handleResetPassword}
+                >
                   Reset Password
                 </button>
               </>

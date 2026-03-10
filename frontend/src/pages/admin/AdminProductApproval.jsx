@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import styles from './AdminProductApproval.module.css';
+import AdminNavbar from '../../Components/AdminNavbar';
 
 const AdminProductApproval = () => {
     const [products, setProducts] = useState([]);
@@ -63,6 +64,7 @@ const AdminProductApproval = () => {
 
     return (
         <div className={styles.container}>
+            <AdminNavbar/>
             <h1>Product Approval</h1>
 
             <div className={styles.filterBar}>

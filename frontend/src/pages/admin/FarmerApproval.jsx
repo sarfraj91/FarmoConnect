@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import styles from './FarmerApproval.module.css';
+import AdminNavbar from '../../Components/AdminNavbar';
 
 const FarmerApproval = () => {
     const [farmers, setFarmers] = useState([]);
@@ -92,6 +93,7 @@ const FarmerApproval = () => {
 
     return (
         <div className={styles.container}>
+            <AdminNavbar />
             <h1 className={styles.header}>Farmer Approval</h1>
 
             {notification.show && (

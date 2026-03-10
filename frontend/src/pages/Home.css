@@ -76,7 +76,7 @@
   font-family: 'Poppins', sans-serif;
   font-size: 2.0rem;
   font-weight: 500;
-  color: #1a5e20; /* same as title */
+  color: rgb(241, 236, 228); /* same as title */
 }
 
 /* Button group */
@@ -89,24 +89,33 @@
 }
 
 /* Button styles */
+
+
+
 .role-button {
-  padding: 15px 50px;
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: white;
-  background: linear-gradient(135deg, #4CAF50, #2d572c);
+  background: linear-gradient(to right, #16a34a, #2563eb); /* from-green-600 to-blue-600 */
+  color: white;                                             /* text-white */
+  padding: 8px 24px;                                        /* py-2 px-6 */
+  border-radius: 0.5rem;                                    /* rounded-lg */
+  font-weight: 600;                                         /* font-semibold */
   border: none;
-  border-radius: 10px;
   cursor: pointer;
-  transition: all 0.3s ease;
-  width:200px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;                                /* transition-all */
 }
 
+/* Hover shadow = hover:shadow-lg */
 .role-button:hover {
-  background: linear-gradient(135deg, #2d572c, #4CAF50);
-  transform: scale(1.05);
+  box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1),
+              0 4px 6px -2px rgba(0,0,0,0.05);
 }
+
+
+
+
+
+
+
+
 
 /* Back link */
 .back-link {

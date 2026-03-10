@@ -144,7 +144,7 @@ const ConsumerLogin = () => {
   return (
     <div className={styles.appContainer}>
       <div className={styles.consumerLoginPage}>
-        <h1>Consumer Login</h1>
+        <h1>Provider Login</h1>
 
         {!showForgotPassword ? (
           <form className={styles.loginForm} onSubmit={handleLogin}>
@@ -229,7 +229,7 @@ const ConsumerLogin = () => {
           </div>
         )}
 
-        <Link to="/" className={styles.backLink}>
+        <Link to="/home" className={styles.backLink}>
           Back to Home
         </Link>
 

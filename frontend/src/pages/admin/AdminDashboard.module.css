@@ -1,0 +1,147 @@
+/* Container */
+.dashboardContainer {
+  background: #f4f7f5;
+  min-height: 100vh;
+  padding-bottom: 40px;
+}
+
+/* Header */
+.header {
+  text-align: center;
+  margin: 30px auto;
+}
+
+.header h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #2e7d32;
+}
+
+.header p {
+  color: #444;
+  font-size: 1.1rem;
+}
+
+/* Card Grid */
+.cardGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  width: 90%;
+  margin: auto;
+  margin-bottom: 40px;
+}
+
+.card {
+  background: linear-gradient(135deg, #4caf50, #0099ff, #ffffff);
+  padding: 25px;
+  border-radius: 15px;
+  text-align: center;
+  color: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+.card h3 {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.card p {
+  margin-top: 5px;
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+/* Table Section */
+.tableSection {
+  width: 90%;
+  margin: auto;
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.tableSection h3 {
+  color: #2e7d32;
+  margin-bottom: 15px;
+}
+
+/* Table */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  overflow: hidden;
+}
+
+.table th {
+  background: #2e7d32;
+  color: white;
+  padding: 12px;
+  text-align: left;
+}
+
+.table td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.approved {
+  color: green;
+  font-weight: bold;
+}
+
+.pending {
+  color: orange;
+  font-weight: bold;
+}
+
+.rejected {
+  color: red;
+  font-weight: bold;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  margin-top: 30px;
+  padding: 10px;
+  color: #555;
+  font-size: 0.9rem;
+}
+
+/* ------------------------------ */
+/* 📱 Responsive Design */
+/* ------------------------------ */
+
+@media (max-width: 1200px) {
+  .cardGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  .cardGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .header h2 {
+    font-size: 1.7rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .tableSection {
+    padding: 15px;
+  }
+
+  .table th, .table td {
+    font-size: 0.85rem;
+  }
+}

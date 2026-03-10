@@ -10,10 +10,10 @@ import Transactions from "./Transactions";
 const AdminRoutes = () => {
     return (
         <>
-            <AdminNavbar /> {/* Always show AdminNavbar for admin pages */}
+            
             <Routes>
                 <Route path="/admin-login/:id" element={<AdminLogin />} />
-                <Route path=" " element={<AdminDashboard />} />
+                <Route path="/" element={<AdminDashboard />} />
                 <Route path="products" element={<AdminProductApproval />} />
                 <Route path="registrations" element={<FarmerApproval />} />
                 <Route path="orders" element={<Orders />} />

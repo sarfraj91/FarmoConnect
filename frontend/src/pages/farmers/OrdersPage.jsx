@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import styles from "./OrdersPage.module.css";
@@ -38,7 +39,7 @@ const OrdersPage = () => {
                             <tr>
                                 <th>Order ID</th>
                                 <th>Product</th>
-                                <th>Quantity (kg)</th>
+                                <th>Quantity </th>
                                 <th>Price</th>
                                 <th>Transaction ID</th>
                                 <th>Date</th>

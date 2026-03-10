@@ -70,7 +70,7 @@ const ConsumerCart = () => {
     };
 
     const handlePayment = async () => {
-        const amount = calculateTotal() + 150;
+        const amount = calculateTotal() + 150.00;
 
         try {
             const { data } = await axios.post("http://localhost:5000/api/payment/order", {
@@ -79,7 +79,7 @@ const ConsumerCart = () => {
             });
 
             const options = {
-                key: 'rzp_test_mY1cihVNUQlMBf',
+                key: 'rzp_test_CgSfVjEG6p67bF',
                 amount: amount * 100,
                 currency: "INR",
                 name: "AgroKart",
@@ -143,7 +143,7 @@ const ConsumerCart = () => {
     }
 
     return (
-        <Container sx={{ py: 4 }}>
+        <Container sx={{ py: 4 , mt: 10  }}>
             <Typography variant="h4" gutterBottom>
                 Shopping Cart
             </Typography>
@@ -172,7 +172,7 @@ const ConsumerCart = () => {
                                         <Grid item xs={4}>
                                             <Typography variant="h6">{item.name}</Typography>
                                             <Typography color="text.secondary">
-                                                ₹{item.price} each
+                                                ₹{item.price} /hr
                                             </Typography>
                                         </Grid>
                                         <Grid item xs={3}>
@@ -239,7 +239,7 @@ const ConsumerCart = () => {
                                 size="large"
                                 onClick={handlePayment}
                             >
-                                Buy now
+                                Rent now
                             </Button>
                         </Paper>
                     </Grid>

@@ -112,10 +112,10 @@ const AddProduct = ({ product = null, onClose }) => {
   return (
     <div className={styles.formOverlay}>
       <div className={styles.addProductForm}>
-        <h2>{product ? "Edit Product" : "Add New Product"}</h2>
+        <h2>{product ? "Edit Product" : "Add New Equipment"}</h2>
         <form onSubmit={handleSubmit}>
           <div className={styles.formGroup}>
-            <label>Product Name</label>
+            <label> Name</label>
             <input
               type="text"
               name="name"
@@ -134,9 +134,15 @@ const AddProduct = ({ product = null, onClose }) => {
               required
             >
               <option value="">-- Select Category --</option>
-              <option value="Vegetables">Vegetables</option>
-              <option value="Fruits">Fruits</option>
-              <option value="Grains">Grains</option>
+              <option value="Tractor">Tractor</option>
+              <option value="Seed Drill/Planter">Seed Drill/Planter</option>
+              <option value="Harvester">Harvester</option>
+              <option value="Thresher">Thresher</option>
+              <option value="Sprayer">Sprayer</option>
+              <option value="Water Pump">Water Pump</option>
+              <option value="Rotavator">Rotavator</option>
+              <option value="Cultivator">Cultivator</option>
+              <option value="Harrow">Harrow</option>
             </select>
           </div>
 
@@ -151,7 +157,7 @@ const AddProduct = ({ product = null, onClose }) => {
           </div>
 
           <div className={styles.formGroup}>
-            <label>Upload Product Image</label>
+            <label>Upload Equipment Image</label>
             <input type="file" accept="image/*" onChange={handleImageUpload} />
             {uploading && <p>Uploading image...</p>}
             {imagePreview && (
@@ -165,7 +171,7 @@ const AddProduct = ({ product = null, onClose }) => {
 
           <div className={styles.formRow}>
             <div className={styles.formGroup}>
-              <label>Price per Unit (₹)</label>
+              <label>Price per hour (₹)</label>
               <input
                 type="number"
                 name="price"
@@ -187,7 +193,7 @@ const AddProduct = ({ product = null, onClose }) => {
           </div>
 
           <div className={styles.formGroup}>
-            <label>Contact Info</label>
+            <label>Contact Info/Address</label>
             <input
               type="text"
               name="contact"

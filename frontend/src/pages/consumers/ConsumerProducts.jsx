@@ -74,16 +74,16 @@ const ConsumerProducts = () => {
     };
 
     const filteredProducts = products.filter((product) =>
-        product.name.toLowerCase().includes(searchTerm.toLowerCase())
+        product.category.toLowerCase().includes(searchTerm.toLowerCase())
     );
 
     return (
-        <Container sx={{ py: 4 }}>
+        <Container sx={{ py: 4, mt: 8   }}>
             <Box sx={{ mb: 4 }}>
                 <TextField
                     fullWidth
                     variant="outlined"
-                    placeholder="Search products..."
+                    placeholder="Search Equipments..."
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
                     InputProps={{
@@ -116,13 +116,13 @@ const ConsumerProducts = () => {
                                 </Typography>
                                 <Chip label={product.category} size="small" sx={{ mb: 1 }} />
                                 <Typography variant="body2" color="text.secondary" gutterBottom>
-                                    Farmer Name: {product.contact || 'Unknown Farmer'}
+                                    Address: {product.contact || 'Unknown Farmer'}
                                 </Typography>
                                 <Typography
                                     variant="h6"
                                     sx={{ color: '#2e7d32', fontWeight: 600, mb: 1 }}
                                 >
-                                    ₹{product.price}
+                                    ₹{product.price} / hr
                                 </Typography>
                                 <Typography variant="body2" color="text.secondary">
                                     Uploaded: {moment(product.updatedAt).fromNow()}

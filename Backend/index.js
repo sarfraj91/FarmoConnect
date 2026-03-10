@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const dotEnv = require("dotenv");
+dotEnv.config();
 const GetTxnRouter = require("./Routes/AdminRoutes/getTxnRoutes.js");
 const getConsOrderRouter = require("./Routes/Consumer/consumerOrderRoutes.js");
 const AdminProductsrouter = require("./Routes/AdminRoutes/GetordersRoutes.js");
@@ -33,10 +34,16 @@ const AddtoordersRouter = require("./Routes/AddtoOrders.js");
 const productRoutes = require("./Routes/Farmer/ProductRoutes");
 const UpdateOrderStatusRoutes = require("./Routes/AdminRoutes/UpdateOrderstatusRoutes.js");
 const getPaymentsRouter = require("./Routes/AdminRoutes/TransactionRoutes.js");
-dotEnv.config();
+const chatRoute = require("./Routes/chat");
+const listModels = require("./Routes/listModels");
+
+
+
+
+
 const app = express();
 const PORT = process.env.PORT || 5000;
-const port = 5000;
+
 mongoose
   .connect(process.env.MONGO_URL)
   .then(() => {
@@ -80,6 +87,8 @@ app.use("/api", FarmerDashboardRouter);
 app.use("/api", verificationroutes);
 app.use("/api/consumer", consumerProductRoutes);
 app.use("/api", productRoutes);
+app.use("/api", chatRoute);
+app.use("/api", listModels);
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });

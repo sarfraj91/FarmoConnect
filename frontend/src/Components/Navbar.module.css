@@ -1,60 +1,67 @@
+/* ===========================
+   NAVBAR MAIN
+=========================== */
 .navbar {
   position: fixed;
   top: 0;
-  left: 0;
   width: 100%;
-  height: 80px;
-  z-index: 1000;
-  background: #164026;
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: space-between; /* Ensure proper spacing between logo, links, and translator */
+  height: 78px;
   padding: 0 30px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  overflow-x: hidden;
-  flex-wrap: wrap; /* Helps wrap on smaller screens */
-}
-.logoWrapper {
-  background-color: white;
-  border-radius: 50%;
-  padding: 5px; /* Adjust to control circle size */
+
+  background: linear-gradient(90deg, #0d6e46, #2563eb);
+  backdrop-filter: blur(12px);
+
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  height: 50px;
-  width: 50px;
-  margin-right: 10px;
+  z-index: 2000;
+
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.23);
 }
 
+/* ===========================
+   LOGO
+=========================== */
 .logo {
   display: flex;
   align-items: center;
-  gap: 10px; /* space between logo image and text */
-  font-size: 22px;
-  font-weight: bold;
-  flex-shrink: 0; /* prevent logo from shrinking */
-  margin-right: 50px; /*Adds space between logo and nav links */
+  gap: 12px;
+  cursor: pointer;
+}
+
+.logoWrapper {
+  background: white;
+  border-radius: 50%;
+  padding: 6px;
+  height: 54px;
+  width: 54px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
 .logoImg {
-  height: 50px;
-  margin-right: 0; 
-  vertical-align: middle;
-  width: 100px;
-  object-fit: contain;
+  width: 85%;
+  height: auto;
 }
 
+.logoText {
+  font-size: 22px;
+  font-weight: 800;
+  color: white;
+}
 
-
+/* ===========================
+   NAV LINKS
+=========================== */
 .navLinks {
   display: flex;
+  align-items: center;
   gap: 30px;
   list-style: none;
-  margin-left: 40px;
-  flex: 1;
-  align-items: center;
-  flex-wrap: wrap;
+  transition: all 0.3s ease;
 }
 
 .navLinks li {
@@ -62,37 +69,48 @@
   align-items: center;
 }
 
-.navLinks a {
-  color: white;
+.navLinks li a {
   text-decoration: none;
-  font-size: 20px;
-  padding: 10px 15px;
-  border-radius: 6px;
-  transition: background-color 0.3s ease;
+  color: white;
+  font-size: 18px;
+
+  padding: 10px 18px;
+  border-radius: 8px;
+
   display: flex;
   align-items: center;
   gap: 6px;
-  white-space: nowrap; 
 
+  transition: all 0.25s ease-in-out;
 }
 
-
-.navLinks a:hover {
-  background-color: #40916c;
+.navLinks li a:hover {
+  background: rgba(255, 255, 255, 0.18);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.18);
 }
 
-.translateWidget {
- /* Push it to the far right */
-  align-items: center;
-  justify-content: flex-end;
-  height: 100%;
-  padding-left: 20px;
-  padding-right: 20px;
-  overflow: hidden;
-  background: transparent;
-  flex: 0 0 auto;
+/* ACTIVE TAB */
+.active a {
+  background: rgba(30, 29, 29, 0.597);
+  font-weight: 700;
+  box-shadow: 0 5px 15px rgba(213, 82, 82, 0.411);
+  transform: translateY(-2px);
 }
 
+/* LOGOUT */
+.logout {
+  background: rgba(255, 50, 50, 0.24);
+}
+.logout:hover {
+  background: rgba(255, 50, 50, 0.35);
+}
+
+/* ===========================
+   GOOGLE TRANSLATE — OLD WORKING STYLE
+=========================== */
+
+/* Remove unwanted Google injected elements */
 :global(.goog-te-banner-frame),
 :global(body > .skiptranslate),
 :global(.goog-logo-link),
@@ -105,52 +123,83 @@
   overflow-x: hidden !important;
 }
 
+/* Translate dropdown container */
+.translateWidget {
+  align-items: center;
+  justify-content: flex-end;
+  height: 100%;
+  padding-left: 20px;
+  padding-right: 20px;
+  overflow: hidden !important;
+  background: transparent !important;
+  flex: 0 0 auto;
+}
+
+/* Ensure translate dropdown appears fine */
 :global(#google_translate_element) {
   display: inline-block !important;
   white-space: nowrap;
-  height: 30px;
   max-width: 150px;
-  overflow: hidden;
+  height: 30px;
+  overflow: hidden !important;
 }
 
+/* Translate Dropdown */
 :global(.goog-te-combo),
 :global(select.goog-te-combo) {
   font-size: 14px !important;
-  padding: 5px;
-  border-radius: 6px;
+  padding: 5px !important;
+  border-radius: 6px !important;
   width: 150px !important;
+
   background-color: #f8f9fa !important;
   border: none !important;
-  outline: none;
+  color: #333 !important;
+  outline: none !important;
 }
 
-/* ✅ Responsive */
-@media (max-width: 768px) {
-  .navbar {
-    flex-direction: column;
-    height: auto;
-    padding: 10px 20px;
-    align-items: flex-start;
+/* ===========================
+   MOBILE MENU
+=========================== */
+.menuToggle {
+  display: none;
+  color: white;
+  cursor: pointer;
+}
+
+@media (max-width: 868px) {
+  .menuToggle {
+    display: block;
   }
 
   .navLinks {
-    flex-direction: column;
-    gap: 15px;
+    position: absolute;
+    top: 78px;
+    right: 0;
     width: 100%;
-    margin-left: 0;
+    background: rgba(0,0,0,0.45);
+    backdrop-filter: blur(14px);
+
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+    gap: 18px;
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+
+    transition: all 0.3s ease;
   }
 
-  .translateWidget {
-    align-self: center; /* Center the widget on smaller screens */
-    margin-top: 10px;
-    padding-left: 0;
-    padding-right: 0;
+  .showMenu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
   }
-}
 
-@media (max-width: 768px) {
-  .navLinks a {
-    white-space: normal;
+  .navLinks li a {
+    width: 100%;
     font-size: 18px;
   }
 }

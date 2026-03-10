@@ -27,6 +27,7 @@ const Products = () => {
       setProducts(response.data);
     } catch (err) {
       setError("Failed to fetch products");
+      console.log(err);
     }
   };
 
@@ -74,6 +75,7 @@ const Products = () => {
   return (
     <div className={styles.productsContainer}>
       <Navbar />
+
       <h2>Product List</h2>
 
       {error && <p className={styles.error}>{error}</p>}
@@ -85,7 +87,7 @@ const Products = () => {
           setShowForm(true);
         }}
       >
-        Add Product
+        Add Equipment
       </button>
 
       {showForm && (
@@ -112,7 +114,7 @@ const Products = () => {
               />
               <h3>{product.name}</h3>
               <p className={styles.price}>
-                Price: <span>₹{product.price}</span>
+                Price: <span>₹{product.price}/Hr</span>
               </p>
               <p className={styles.price}>
                 Available stock: <span>{product.quantity}</span>
@@ -120,6 +122,13 @@ const Products = () => {
               <p className={styles.price}>
                 Product status: <span>{product.isVerified}</span>
               </p>
+
+              <p className={styles.price}>
+                Product: <span>{product.category}</span>
+              </p>
+
+             
+
               <p className={styles.price}>
                 Product Id: <span>{product.productId}</span>
               </p>

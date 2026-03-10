@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styles from './Transactions.module.css';
 import axios from 'axios';
+import AdminNavbar from '../../Components/AdminNavbar'; 
 import {
     FiSearch,
     FiCheckCircle,
@@ -68,6 +69,7 @@ const Transactions = () => {
 
     return (
         <div className={styles.dashboard}>
+            <AdminNavbar />
             <div className={styles.mainContent}>
                 <div className={styles.header}>
                     <h1>Transaction History</h1>
